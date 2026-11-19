@@ -1,0 +1,11 @@
+# 키·로컬 설정 (절대 올리지 않음)
+local.properties
+*.keystore
+*.jks
+.env
+
+# 빌드 산출물
+.gradle/
+build/
+.idea/
+*.apk
