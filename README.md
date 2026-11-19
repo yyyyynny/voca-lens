@@ -19,9 +19,9 @@
 | 짝짓기 | Gemini 3.8 Flash 무료 등급 (3.5 Flash-Lite와 비교 후 확정) |
 | 누락·철자 대조 | Cloud Vision `DOCUMENT_TEXT_DETECTION` (월 1,000장 무료) |
 | 앱 | Kotlin + Jetpack Compose, APK 직접 설치 |
-| 서버 | 없음. 사용자가 늘면 Cloudflare Workers로 키 대리 호출 |
-| API 키 | APK에 넣지 않음. 앱 설정에서 입력해 폰에 암호화 저장, 해당 API만 쓰도록 키 제한 |
-| 저장 | 폰 내부 저장 + 파일 백업 |
+| 서버 | Cloudflare Workers가 Gemini·Vision을 대신 호출 (무료 등급 하루 10만 요청) |
+| API 키 | Workers 비밀 값으로만 보관. APK·저장소에는 넣지 않음, 해당 API만 쓰도록 키 제한 |
+| 저장 | 폰 내부 저장 + 수동 파일 백업 |
 
 ## 인식 흐름
 
@@ -73,6 +73,7 @@ LLM은 희귀 단어를 흔한 단어로 「고칠」 수 있다(예: obsequious
 - 스토어 등록 (Play 개인 계정은 테스터 12명 14일, 갤럭시 스토어 조건 미확인)
 - 18세 이상 확인 체크, 성인 대상 안내 (Gemini API 약관: 18세 미만 대상 앱 금지)
 - 개인정보처리방침에 「사진이 Google AI 개선에 쓰일 수 있음」 고지 (무료 등급)
+- Workers 주소를 아무나 호출하지 못하게 앱 인증 추가
 - 무료 한도는 프로젝트 단위라 사용자가 늘면 유료 전환 검토
 - 광고는 스토어 등록 후 AdMob, 내 폰은 테스트 기기로 등록
 
