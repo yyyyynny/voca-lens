@@ -4,6 +4,7 @@ local.properties
 *.jks
 .env
 .dev.vars
+.wrangler/
 
 # 빌드 산출물
 .gradle/
